@@ -1,11 +1,14 @@
-import React from 'react';
-import { Typography, Grid, Badge, Card, styled, Stack } from "@mui/material";
+import React, { useState, useEffect } from 'react';
+import { Typography, Grid, Card, styled, Stack } from "@mui/material";
 import header from './assets/header.svg';
 import footer from './assets/footer.svg';
 import instaLogo from './assets/instagramLogo.svg'
 import slackLogo from './assets/slackLogo.svg'
 import emailLogo from './assets/emailLogo.svg'
 import './App.css';
+import IconCard from './components/IconCard';
+import PostPrev from './components/PostPrev'
+import getRss from './util/rssFeed';
 
 const SectionHead = styled(Typography)({
   color: "#4D4D4D",
@@ -31,10 +34,24 @@ const StyledCard = styled(Card)({
   borderRadius: 10,
 });
 
-const posts = [{title: "Post Title", url:null},
-               {title: "Long post title with a lot of words", url:null}]
+type post = {
+  link: string,
+  title:  string,
+  author: string,
+  content: string
+}
+
 
 function App() {
+  const [posts, setPosts] = useState<post[]>([]);
+  useEffect(() => {
+    getRss().then((rss) => {
+      if (rss != null) {
+        setPosts(rss);
+      }
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -63,6 +80,13 @@ function App() {
           </Grid>
           <Grid item xs={12} sm={4}>
             <Stack spacing={2}>
+              {posts.map(
+                (post, index) =>
+                (<PostPrev
+                  title={post.title}
+                  link={post.link}
+                />)
+              )}
               <StyledCard className="OneLineCard">
                 <CardHead variant='h5'>Post Title</CardHead>
               </StyledCard>
@@ -72,6 +96,9 @@ function App() {
             </Stack>
           </Grid>
         </Grid>
+      </div>
+      <div className='Section'>
+        <SectionHead className='SectionHead' variant='h3'>EVENTS</SectionHead>
       </div>
       <div className='Section'>
         <SectionHead className='SectionHead' variant='h3'>ABOUT US</SectionHead>
@@ -90,30 +117,9 @@ function App() {
           <Grid item xs={12} sm={4}>
             <Stack spacing={1}>
               <CardHead variant='h5'>Connect with the org!</CardHead>
-              <StyledCard className="IconCard">
-                <Stack direction="row" spacing={1}>
-                  <img src={instaLogo} width="32" />
-                  <div className='Center'>
-                    <span>@cmu.scottylabs</span>
-                  </div>
-                </Stack>
-              </StyledCard>
-              <StyledCard className="IconCard">
-                <Stack direction="row" spacing={1}>
-                  <img src={slackLogo} width="32" />
-                  <div className='Center'>
-                    <span>scottylabs.slack.com</span>
-                  </div>
-                </Stack>
-              </StyledCard>
-              <StyledCard className="IconCard">
-                <Stack direction="row" spacing={1}>
-                  <img src={emailLogo} width="32" />
-                  <div className='Center'>
-                    <span>scotty-labs@andrew.cmu.edu</span>
-                  </div>
-                </Stack>
-              </StyledCard>
+              <IconCard icon={instaLogo} text="@cmu.scottylabs"></IconCard>
+              <IconCard icon={slackLogo} text="scottylabs.slack.com"></IconCard>
+              <IconCard icon={emailLogo} text="scotty-labs@andrew.cmu.edu"></IconCard>
             </Stack>
           </Grid>
         </Grid>
