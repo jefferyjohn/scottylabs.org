@@ -41,6 +41,11 @@ type post = {
   content: string
 }
 
+function str2html (s : string) {
+  var htmlObject = document.createElement('div');
+  htmlObject.innerHTML = s;
+  return htmlObject;
+}
 
 function App() {
   const [posts, setPosts] = useState<post[]>([]);
@@ -63,29 +68,21 @@ function App() {
         <Grid container spacing={4}>
           <Grid item xs={12} sm={8}>
             <StyledCard className="Feature" sx={{ minHeight: 100}}>
-              <CardHead variant='h5'>Featured Post</CardHead>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam 
-                eleifend mi in nulla posuere sollicitudin aliquam. Eleifend mi in nulla posuere 
-                sollicitudin aliquam ultrices sagittis orci. Amet nisl purus in mollis nunc sed. 
-                Consectetur adipiscing elit duis tristique sollicitudin. Dolor morbi non arcu 
-                risus quis varius quam quisque. Interdum velit euismod in pellentesque massa. 
-                Non quam lacus vitae tempus quam. Duis tristique sollicitudin nibh sit amet. 
-                Id eu nisl nunc mi ipsum faucibus vitae aliquet. Interdum varius sit amet mattis 
-                vulputate. At augue eget arcu dictum varius. Facilisis volutpat est velit egestas. 
-                Interdum varius sit amet mattis...
-              </p>
+              <CardHead variant='h5'><a href={posts[0].link}>{posts[0].title}</a></CardHead>
+              <div dangerouslySetInnerHTML={{ __html: posts[0].content }} />
             </StyledCard>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Stack spacing={2}>
               {posts.map(
-                (post, index) =>
-                (<PostPrev
-                  title={post.title}
-                  link={post.link}
-                />)
+                function(post, idx){
+                  if (idx != 0) {
+                    return <PostPrev
+                      title={post.title}
+                      link={post.link}
+                    />
+                  }
+                }
               )}
               <StyledCard className="OneLineCard">
                 <CardHead variant='h5'>Post Title</CardHead>

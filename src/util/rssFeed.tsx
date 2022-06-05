@@ -21,8 +21,8 @@ export default async function getRss() {
 	const feedItems = [...items].map((el) => ({
 		link: el.querySelector("link")?.innerHTML ?? "",
 		title: extractCDATA(el.querySelector("title")),
-		author: extractCDATA(el.querySelector("author")),
-		content: el.querySelector("content:encoded")?.innerHTML ?? ""
+		author: extractCDATA(el.querySelector("creator")),
+		content: extractCDATA(el.querySelector("encoded"))
 	}));
 	return feedItems;
 };

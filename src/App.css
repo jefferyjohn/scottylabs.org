@@ -65,6 +65,9 @@ span {
 .Feature {
   margin-bottom: 20%;
   padding: 20px;
+  height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ParagraphCard {
