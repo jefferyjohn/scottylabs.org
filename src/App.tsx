@@ -7,7 +7,8 @@ import slackLogo from './assets/slackLogo.svg'
 import emailLogo from './assets/emailLogo.svg'
 import './App.css';
 import IconCard from './components/IconCard';
-import PostPrev from './components/PostPrev'
+import PostPrev from './components/PostPrev';
+import ImageCard from './components/ImageCard';
 import getRss from './util/rssFeed';
 
 const SectionHead = styled(Typography)({
@@ -96,6 +97,13 @@ function App() {
       </div>
       <div className='Section'>
         <SectionHead className='SectionHead' variant='h3'>EVENTS</SectionHead>
+        <Grid container spacing={4}>
+          {[0,1,2,3].map((el, idx) =>
+            <Grid item xs={3}>
+              <ImageCard image='' text='Title Here' desc='Description here' link=''></ImageCard>
+            </Grid>
+          )}
+        </Grid>
       </div>
       <div className='Section'>
         <SectionHead className='SectionHead' variant='h3'>ABOUT US</SectionHead>
