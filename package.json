@@ -16,6 +16,7 @@
     "create-react-app": "^5.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-material-ui-carousel": "^3.4.2",
     "react-scripts": "5.0.0",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"

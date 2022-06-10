@@ -115,7 +115,7 @@ function App() {
                 students learn about and explore interesting topics in technology. We organize educational 
                 events to help people learn how to make things, host workshops to give students the opportunity 
                 to work on projects outside of class, and develop applications and services for the campus community. 
-                Our GBMs this semester are on Thursdays at 6pm ET over [Zoom](http://href.scottylabs.org/zoom).
+                Our GBMs this semester are on Thursdays at 6pm ET over <a href="http://href.scottylabs.org/zoom">Zoom</a>.
               </p>
             </StyledCard>
           </Grid>
