@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Grid, Card, styled, Stack } from "@mui/material";
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import header from './assets/header.svg';
 import footer from './assets/footer.svg';
 import instaLogo from './assets/instagramLogo.svg'
@@ -42,12 +45,6 @@ type post = {
   content: string
 }
 
-function str2html (s : string) {
-  var htmlObject = document.createElement('div');
-  htmlObject.innerHTML = s;
-  return htmlObject;
-}
-
 function App() {
   const [posts, setPosts] = useState<post[]>([]);
   useEffect(() => {
@@ -62,7 +59,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={header} height="100%" width="100%"/>
-        
       </header>
       <div className="Section">
         <SectionHead className='SectionHead' variant='h3'>BLOG POSTS</SectionHead>
@@ -105,6 +101,24 @@ function App() {
           )}
         </Grid>
       </div>
+      <div className='Section'>
+        <SectionHead className='SectionHead' variant='h3'>CALENDAR</SectionHead>
+        <StyledCard className="ParagraphCard">
+          <FullCalendar
+            plugins={[dayGridPlugin, googleCalendarPlugin]}
+            googleCalendarApiKey='AIzaSyC95JGq4DQV_b48S-1ZA6wz0WONPujhBrU'
+            events={{ googleCalendarId: 'cmu.scottylabs@gmail.com' }}
+          />
+        </StyledCard>
+        
+      </div>
+      {/*<div className='Section'>
+        <SectionHead className='SectionHead' variant='h3'>CALENDAR</SectionHead>
+        <FullCalendar
+          plugins={[googleCalendarPlugin]}
+          googleCalendarApiKey='AIzaSyC95JGq4DQV_b48S-1ZA6wz0WONPujhBrU'
+          events={[{googleCalendarId: 'cmu.scottylabs@gmail.com'}]}/>
+      </div>*/}
       <div className='Section'>
         <SectionHead className='SectionHead' variant='h3'>ABOUT US</SectionHead>
         <Grid container spacing={4}>
