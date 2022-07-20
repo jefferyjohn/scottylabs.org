@@ -1,18 +1,18 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Gradient from "../src/components/Gradient";
-import styles from "../styles/Home.module.css";
+import Hero from "../src/components/Hero";
+import Navbar from "../src/components/Navbar";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>ScottyLabs</title>
         <meta name="description" content="ScottyLabs" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-
-      <Gradient />
+      <Navbar home />
+      <Hero />
     </div>
   );
 };
