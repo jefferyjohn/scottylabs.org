@@ -1,9 +1,5 @@
 /*
- *   Stripe WebGl Gradient Animation by Stripe.com
- *   ScrollObserver functionality to disable animation when not scrolled into view has been disabled and
- *   commented out for now.
- *
- *   Taken from https://kevinhufnagl.com/how-to-stripe-website-gradient-effect/
+ * Taken from https://kevinhufnagl.com/how-to-stripe-website-gradient-effect/
  */
 
 //Converting colors to proper format
@@ -622,7 +618,7 @@ export class GradientController {
         playing: true,
       }),
       document.querySelectorAll("canvas").length < 1
-        ? console.log("DID NOT LOAD HERO STRIPE CANVAS")
+        ? console.log("DID NOT LOAD CANVAS")
         : ((this.minigl = new MiniGl(this.el, null, null, !0)),
           requestAnimationFrame(() => {
             this.init();
