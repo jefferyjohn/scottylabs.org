@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Gradient from "../Gradient";
+import GradientThree from "../GradientThree";
 import styles from "./index.module.scss";
 
 /**
@@ -51,11 +52,11 @@ const Navbar = ({ home = false }: { home?: Boolean }) => {
   return (
     <div>
       <div className={styles.gradientContainer}>
-        <Gradient className={styles.gradient} />
+        <GradientThree className={styles.gradient} />
         <svg width={0} height={0}>
           <defs>
             <clipPath id="gradientClipPath" clipPathUnits="objectBoundingBox">
-              <path d="M0,0.8 C0.4,1 0.6,0.5 1,0.7 L1,0 L0,0 Z" />
+              <path d="M0,0.7 C0.4,1 0.6,0.5 1,0.7 L1,0 L0,0 Z" />
             </clipPath>
           </defs>
         </svg>

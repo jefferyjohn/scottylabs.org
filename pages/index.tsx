@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import GradientThree from "../src/components/GradientThree";
 import Hero from "../src/components/Hero";
 import Navbar from "../src/components/Navbar";
 
