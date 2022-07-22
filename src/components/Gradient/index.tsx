@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { GradientController } from "./controller";
 import styles from "./index.module.scss";
 
 type GradientColors = [string, string, string, string];
@@ -20,8 +19,14 @@ const Gradient = ({
   className?: string;
 }) => {
   useEffect(() => {
-    const gradient = new GradientController(gradientColors);
-    gradient.initGradient("#gradient-canvas");
+    if (window?.Gradient != null) {
+      const gradient = new window.Gradient();
+      gradient.freqX = 14e-5;
+      gradient.freqY = 29e-5;
+      gradient.freqDelta = 1e-4;
+      gradient.amp = 100;
+      gradient.initGradient("#gradient-canvas");
+    }
   }, [gradientColors]);
 
   return (
