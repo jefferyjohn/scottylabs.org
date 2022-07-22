@@ -1,0 +1,52 @@
+$base-bg-color: #2A2B9C;
+$spotlight-1-color: #F50000;
+$spotlight-2-color: #56CCF2;
+$spotlight-3-color: #00E7D6;
+$spotlight-4-color: #00F9D5;
+$transparent-color: #00000000;
+
+.container {
+  height: 50vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  background-color: $base-bg-color;
+  position: absolute;
+}
+
+.gradientContainer {
+  height: 105%;
+  width: 105%;
+  filter: blur(3px);
+  position: absolute;
+}
+
+.gradientSpotlight {
+  height: 100%;
+  width: 100%;
+  
+  // background: conic-gradient($spotlight-1-color, $spotlight-2-color, $spotlight-2-color, $spotlight-1-color);
+  position: absolute;
+  mix-blend-mode: hard-light;
+}
+
+.gradientSpotlight:nth-child(1) {
+  background: radial-gradient(circle at top left, $spotlight-1-color 0%, $spotlight-1-color 5%, $transparent-color 50%);
+}
+
+.gradientSpotlight:nth-child(2) {
+  background: radial-gradient(circle at bottom right, $spotlight-2-color 0%, $spotlight-2-color 3%, $transparent-color 30%);
+}
+
+.gradientSpotlight:nth-child(3) {
+  background: radial-gradient(circle at 5% 80%, $spotlight-3-color 0%, $spotlight-3-color 3%, $transparent-color 10%);
+}
+
+.gradientSpotlight:nth-child(4) {
+  background: radial-gradient(circle at 30% 80%, $spotlight-3-color 0%, $spotlight-3-color 3%, $transparent-color 10%);
+}
