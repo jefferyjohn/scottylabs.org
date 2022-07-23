@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Typography from "../Typography";
 import styles from "./index.module.scss";
 
 /**
@@ -16,7 +17,9 @@ const Hero = () => {
           alt="ScottyLabs icon"
         />
       </div>
-      <div className={styles.heroTitle}>ScottyLabs</div>
+      <Typography className={styles.heroTitle} variant="header">
+        ScottyLabs
+      </Typography>
     </div>
   );
 };

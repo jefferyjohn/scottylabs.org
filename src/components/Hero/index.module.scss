@@ -1,6 +1,6 @@
 @import "~/styles/variables.scss";
 
-$hero-gradient: linear-gradient(#0005, #000f);
+$hero-gradient: linear-gradient(#0003, #000a 30%, #000e 60%, #000f 80%);
 
 .heroContainer {
   padding: 3em 3em 0 3em;
@@ -15,9 +15,9 @@ $hero-gradient: linear-gradient(#0005, #000f);
 }
 
 .heroTitle {
-  font-size: 8em;
+  font-size: $text-size-hero;
   font-weight: bold;
-  color: $text-primary;
+  color: $text-alt;
   display: flex;
   align-items: center;
   mask: $hero-gradient;
