@@ -8,7 +8,12 @@ $hero-gradient: linear-gradient(#0003, #000a 30%, #000e 60%, #000f 80%);
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 5em;
+  gap: 8em;
+
+  @include down($breakpoint-lg) {
+    padding: 3em 1em 0 1em;
+    gap: 3em;
+  }
 
   @include down($breakpoint-sm) {
     flex-direction: column;
@@ -33,6 +38,10 @@ $hero-gradient: linear-gradient(#0003, #000a 30%, #000e 60%, #000f 80%);
   color: $text-alt;
   display: flex;
   mask: $hero-gradient;
+
+  @include down($breakpoint-lg) {
+    font-size: $text-size-hero-lg;
+  }
 
   @include down($breakpoint-md) {
     font-size: $text-size-hero-md;
