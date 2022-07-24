@@ -1,4 +1,5 @@
 @import "~/styles/variables.scss";
+@import "~/styles/mixins.scss";
 
 $hero-gradient: linear-gradient(#0003, #000a 30%, #000e 60%, #000f 80%);
 
@@ -8,17 +9,29 @@ $hero-gradient: linear-gradient(#0003, #000a 30%, #000e 60%, #000f 80%);
   justify-content: center;
   flex-direction: row;
   gap: 5em;
+
+  @include down($breakpoint-sm) {
+    flex-direction: column;
+  }
 }
 
-.heroImage img {
+.heroImage {
+  width: 25%;
+  height: auto;
   mask: $hero-gradient;
+
+  @include down($breakpoint-sm) {
+    flex-direction: column;
+  }
 }
 
 .heroTitle {
   font-size: $text-size-hero;
-  font-weight: bold;
   color: $text-alt;
   display: flex;
-  align-items: center;
   mask: $hero-gradient;
+
+  @include down($breakpoint-md) {
+    font-size: $text-size-hero-md;
+  }
 }

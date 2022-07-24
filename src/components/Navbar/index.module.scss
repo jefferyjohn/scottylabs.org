@@ -1,19 +1,32 @@
 @import "~/styles/variables.scss";
+@import "~/styles/mixins.scss";
 
 .navbarContainer {
   top: 0;
   left: 0;
   width: 100%;
 
-  padding: 1.5em 10em 1.5em 3em;
+  padding: $container-padding;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+  position: relative;
 }
 
-.navbarRight {
+.navIcon {
+  width: 50px;
+  height: auto;
+  color: white;
+
+  @include down($breakpoint-md) {
+    width: 30px;
+  }
+}
+
+.navLinkContainer {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 5em;
 }
 
@@ -24,7 +37,15 @@
 .gradientContainer {
   position: absolute;
   width: 100%;
-  height: 90%;
+  height: 70%;
+
+  @include down($breakpoint-lg) {
+    height: 70%;
+  }
+
+  @include down($breakpoint-md) {
+    height: 45%;
+  }
 }
 
 .gradient {
