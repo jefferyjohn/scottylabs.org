@@ -23,11 +23,19 @@
   }
 }
 
+.navIcon:hover {
+  opacity: 0.7;
+}
+
 .navLinkContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 5em;
+
+  @include down($breakpoint-sm) {
+    display: none;
+  }
 }
 
 .navLink {
@@ -46,8 +54,26 @@
   @include down($breakpoint-md) {
     height: 45%;
   }
+
+  @include down($breakpoint-sm) {
+    height: 40%;
+  }
 }
 
 .gradient {
   clip-path: url("#gradientClipPath");
+}
+
+.gradientPath {
+  @include down($breakpoint-sm) {
+    display: none;
+  }
+}
+
+.gradientPathSmall {
+  display: none;
+
+  @include down($breakpoint-sm) {
+    display: block;
+  }
 }

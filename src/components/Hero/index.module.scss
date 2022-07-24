@@ -12,6 +12,9 @@ $hero-gradient: linear-gradient(#0003, #000a 30%, #000e 60%, #000f 80%);
 
   @include down($breakpoint-sm) {
     flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 0;
   }
 }
 
@@ -33,5 +36,9 @@ $hero-gradient: linear-gradient(#0003, #000a 30%, #000e 60%, #000f 80%);
 
   @include down($breakpoint-md) {
     font-size: $text-size-hero-md;
+  }
+
+  @include down($breakpoint-sm) {
+    font-size: $text-size-hero-sm;
   }
 }
