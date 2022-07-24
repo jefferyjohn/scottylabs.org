@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/future/image";
 import Link from "next/link";
+import { useState } from "react";
 import Gradient from "../Gradient";
 import styles from "./index.module.scss";
 
@@ -8,6 +10,8 @@ import styles from "./index.module.scss";
  * a gradient background
  */
 const Toolbar = () => {
+  const [mobileLinksVisible, setMobileLinksVisible] = useState(false);
+
   return (
     <div className={styles.navbarContainer}>
       <div className={styles.navICconContainer}>
@@ -22,6 +26,30 @@ const Toolbar = () => {
             />
           </a>
         </Link>
+      </div>
+      <div className={styles.navMobile}>
+        <div className={styles.navSandwich}>
+          <FontAwesomeIcon
+            icon="bars"
+            onClick={() => setMobileLinksVisible(!mobileLinksVisible)}
+          />
+        </div>
+        {mobileLinksVisible ? (
+          <div className={styles.navLinkContainerMobile}>
+            <Link href="/about" passHref>
+              <a className={`link ${styles.navLink}`}>/about</a>
+            </Link>
+            <Link href="/tech" passHref>
+              <a className={`link ${styles.navLink}`}>/tech</a>
+            </Link>
+            <Link href="/design" passHref>
+              <a className={`link ${styles.navLink}`}>/design</a>
+            </Link>
+            <Link href="/events" passHref>
+              <a className={`link ${styles.navLink}`}>/events</a>
+            </Link>
+          </div>
+        ) : null}
       </div>
       <div className={styles.navLinkContainer}>
         <Link href="/about" passHref>

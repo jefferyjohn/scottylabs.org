@@ -40,6 +40,48 @@
 
 .navLink {
   color: $text-alt;
+
+  @include down($breakpoint-sm) {
+    color: $text-primary;
+  }
+}
+
+.navMobile {
+  display: none;
+
+  @include down($breakpoint-sm) {
+    display: block;
+  }
+}
+
+.navSandwich {
+  width: 1.3em;
+  margin-left: auto;
+  margin-right: 0;
+  color: $text-alt;
+}
+
+.navLinkContainerMobile {
+  display: none;
+
+  @include down($breakpoint-sm) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 3em 3em 0 0;
+    padding: $container-padding;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    gap: 3em;
+
+    background-color: $text-alt;
+    color: $text-primary;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+  }
 }
 
 .gradientContainer {
