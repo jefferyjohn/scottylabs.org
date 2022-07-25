@@ -1,0 +1,20 @@
+@import "~/styles/variables.scss";
+
+.header {
+  font-size: $text-size-h1;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.subheader {
+  font-size: $text-size-h2;
+  font-weight: 500;
+}
+
+.body {
+  font-size: $text-size-body;
+}
+
+.subtitle {
+  font-size: $text-size-subtitle;
+}

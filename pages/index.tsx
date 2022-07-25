@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <meta name="description" content="ScottyLabs" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Navbar home />
+      <Navbar />
       <Hero />
     </div>
   );

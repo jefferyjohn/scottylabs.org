@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Image from "next/future/image";
+import Typography from "../Typography";
 import styles from "./index.module.scss";
 
 /**
@@ -8,15 +9,16 @@ import styles from "./index.module.scss";
 const Hero = () => {
   return (
     <div className={styles.heroContainer}>
-      <div className={styles.heroImage}>
-        <Image
-          width={350}
-          height={350}
-          src="/icons/scotty-dog.svg"
-          alt="ScottyLabs icon"
-        />
-      </div>
-      <div className={styles.heroTitle}>ScottyLabs</div>
+      <Image
+        className={styles.heroImage}
+        src="/icons/scotty-dog.svg"
+        width={305}
+        height={255}
+        alt="ScottyLabs icon"
+      />
+      <Typography className={styles.heroTitle} variant="header">
+        ScottyLabs
+      </Typography>
     </div>
   );
 };
