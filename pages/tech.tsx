@@ -16,14 +16,14 @@ const Tech: NextPage = () => {
       <Navbar collapsed={true} />
       <div
         style={{
-          marginTop: "3em",
-          marginLeft: "12em",
+          marginTop: "5%",
+          marginLeft: "10%",
         }}
       >
         <div>
           <Typography variant="header">TECH</Typography>
         </div>
-        <div style={{ marginTop: "2em" }}>
+        <div style={{ marginTop: "2%" }}>
           <Typography variant="body">
             Tech is a ScottyLabs team branch that works on ___.
           </Typography>
