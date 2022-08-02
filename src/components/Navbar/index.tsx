@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useState } from "react";
-import { CollapsedGradient, ExpandedGradient } from "../Gradient";
 import ScottyLabsIcon from "../../icons/ScottyLabsIcon";
+import Gradient from "../Gradient";
 import styles from "./index.module.scss";
 
 /**
@@ -78,7 +78,7 @@ const Toolbar = ({ collapsed }: { collapsed: Boolean }) => {
 const Navbar = ({ collapsed = false }: { collapsed?: Boolean }) => {
   return (
     <div>
-      {collapsed ? <CollapsedGradient /> : <ExpandedGradient />}
+      <Gradient expanded={!collapsed} />
       <Toolbar collapsed={collapsed} />
     </div>
   );
