@@ -11,6 +11,10 @@
 .pageContent {
   width: 80%;
   margin: 3em auto 0 auto;
+
+  @include down($breakpoint-lg) {
+    width: 90%;
+  }
 }
 
 .aboutSection {
@@ -50,4 +54,8 @@
     height: 36px;
     width: 36px;
   }
+}
+
+.projectTimeline {
+  margin-top: 5em;
 }

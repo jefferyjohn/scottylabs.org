@@ -1,5 +1,5 @@
-import Icon from "../Icon";
-import styles from "./index.module.scss";
+import BaseIcon from "../BaseIcon";
+import styles from "../styles/index.module.scss";
 
 interface Props {
   className?: string;
@@ -15,12 +15,12 @@ export default function AfterEffectsIcon({
   debugBbox,
 }: Props): JSX.Element {
   return (
-    <Icon className={className} debugBbox={debugBbox}>
+    <BaseIcon className={className} debugBbox={debugBbox}>
       <svg
         viewBox="0 0 240 234"
         xmlSpace="preserve"
         xmlns="http://www.w3.org/2000/svg"
-        className={styles.AfterEffectsIcon}
+        className={styles.centeredIcon}
       >
         <g id="vlpa">
           <g id="vlpb">
@@ -47,6 +47,6 @@ export default function AfterEffectsIcon({
           </g>
         </g>
       </svg>
-    </Icon>
+    </BaseIcon>
   );
 }

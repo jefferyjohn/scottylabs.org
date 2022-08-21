@@ -1,5 +1,5 @@
-import Icon from "../Icon";
-import styles from "./index.module.scss";
+import BaseIcon from "../BaseIcon";
+import styles from "../styles/index.module.scss";
 
 interface Props {
   className?: string;
@@ -15,9 +15,9 @@ export default function MattermostIcon({
   debugBbox,
 }: Props): JSX.Element {
   return (
-    <Icon className={className} debugBbox={debugBbox}>
+    <BaseIcon className={className} debugBbox={debugBbox}>
       <svg
-        className={styles.MattermostIcon}
+        className={styles.centeredIcon}
         version="1.1"
         id="svg48"
         width="219.03998"
@@ -43,6 +43,6 @@ export default function MattermostIcon({
           </g>
         </g>
       </svg>
-    </Icon>
+    </BaseIcon>
   );
 }

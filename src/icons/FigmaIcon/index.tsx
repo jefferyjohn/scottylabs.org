@@ -1,5 +1,5 @@
-import Icon from "../Icon";
-import styles from "./index.module.scss";
+import BaseIcon from "../BaseIcon";
+import styles from "../styles/index.module.scss";
 
 interface Props {
   className?: string;
@@ -15,12 +15,12 @@ export default function FigmaIcon({
   debugBbox,
 }: Props): JSX.Element {
   return (
-    <Icon className={className} debugBbox={debugBbox}>
+    <BaseIcon className={className} debugBbox={debugBbox}>
       <svg
         viewBox="0 0 38 57"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={styles.FigmaIcon}
+        className={styles.centeredIcon}
       >
         <g clipPath="url(#figmaClipPath)">
           <path
@@ -50,6 +50,6 @@ export default function FigmaIcon({
           </clipPath>
         </defs>
       </svg>
-    </Icon>
+    </BaseIcon>
   );
 }

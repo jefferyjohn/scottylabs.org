@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import styles from "./index.module.scss";
 
 export type TypographyVariant =
@@ -14,10 +15,10 @@ const Typography = ({
   className = "",
 }: {
   variant?: TypographyVariant;
-  children: string;
+  children?: string;
   className?: String;
 }) => {
-  return <div className={`${className} ${styles[variant]}`}>{children}</div>;
+  return <div className={clsx(className, styles[variant])}>{children}</div>;
 };
 
 export default Typography;
