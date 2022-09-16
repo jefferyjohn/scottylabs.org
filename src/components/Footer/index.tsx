@@ -77,11 +77,11 @@ const Footer = () => {
         label="Medium"
       />
       <FooterLink
-        href="http://go.scottylabs.org/mattermost"
-        src="/icons/mattermost.png"
-        width={59}
-        height={55}
-        label="Mattermost"
+        href="http://go.scottylabs.org/slack"
+        src="/icons/slack.png"
+        width={56}
+        height={56}
+        label="Slack"
       />
       <FooterLink
         href="mailto://hello@scottylabs.org"
