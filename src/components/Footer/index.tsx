@@ -1,33 +1,25 @@
-import Image from "next/future/image";
 import Link from "next/link";
+import FacebookIcon from "../../icons/FacebookIcon";
+import InstagramIcon from "../../icons/InstagramIcon";
+import MailIcon from "../../icons/MailIcon";
+import SlackIcon from "../../icons/SlackIcon";
+import MediumIcon from "../../icons/MediumIcon";
 import Typography from "../Typography";
 import styles from "./index.module.scss";
 
 const FooterLink = ({
   href,
-  src,
-  width,
-  height,
+  icon,
   label,
 }: {
   href: string;
-  src: string;
-  width: number;
-  height: number;
+  icon: JSX.Element;
   label: string;
 }) => {
   return (
     <div className={styles.footerLink}>
       <Link href={href} passHref>
-        <a>
-          <Image
-            className={styles.footerIcon}
-            src={src}
-            width={width}
-            height={height}
-            alt={label}
-          />
-        </a>
+        <a>{icon}</a>
       </Link>
       <Link href={href} passHref>
         <a className={styles.footerLinkLabel}>
@@ -40,7 +32,7 @@ const FooterLink = ({
 
 const Footer = () => {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <svg width={0} height={0}>
         <defs>
           <clipPath id="footerClipPath" clipPathUnits="objectBoundingBox">
@@ -57,40 +49,30 @@ const Footer = () => {
       </svg>
       <FooterLink
         href="https://instagram.com/cmu.scottylabs"
-        src="/icons/instagram.png"
-        width={52}
-        height={53}
+        icon={<InstagramIcon className={styles.footerIcon} />}
         label="Instagram"
       />
       <FooterLink
         href="https://www.facebook.com/ScottyLabs"
-        src="/icons/facebook.png"
-        width={52}
-        height={53}
+        icon={<FacebookIcon className={styles.footerIcon} />}
         label="Facebook"
       />
       <FooterLink
         href="https://medium.com/tartanhacks"
-        src="/icons/medium.png"
-        width={55}
-        height={55}
+        icon={<MediumIcon className={styles.footerIcon} />}
         label="Medium"
       />
       <FooterLink
         href="http://go.scottylabs.org/slack"
-        src="/icons/slack.png"
-        width={56}
-        height={56}
+        icon={<SlackIcon className={styles.footerIcon} />}
         label="Slack"
       />
       <FooterLink
         href="mailto://hello@scottylabs.org"
-        src="/icons/email.png"
-        width={56}
-        height={39}
+        icon={<MailIcon className={styles.footerIcon} />}
         label="Email us!"
       />
-    </div>
+    </footer>
   );
 };
 
