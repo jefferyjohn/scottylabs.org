@@ -3,6 +3,7 @@ import FacebookIcon from "../../icons/FacebookIcon";
 import InstagramIcon from "../../icons/InstagramIcon";
 import MailIcon from "../../icons/MailIcon";
 import SlackIcon from "../../icons/SlackIcon";
+
 import MediumIcon from "../../icons/MediumIcon";
 import Typography from "../Typography";
 import styles from "./index.module.scss";

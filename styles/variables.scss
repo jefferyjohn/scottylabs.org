@@ -1,29 +1,53 @@
 $text-primary: #000000;
 $text-alt: #ffffff;
+$text-unfocused: #999999;
 
 $text-size-hero: 7em;
-$text-size-hero-lg: 6em;
-$text-size-hero-md: 3.5em;
-$text-size-hero-sm: 3em;
-$text-size-hero-xs: 2.5em;
+$text-size-hero-lg: 6rem;
+$text-size-hero-md: 5rem;
+$text-size-hero-sm: 3.5rem;
+$text-size-hero-xs: 2.5rem;
 
-$text-size-h1: 3em;
-$text-size-h2: 2em;
-$text-size-body: 1em;
-$text-size-subtitle: 0.8em;
-$text-size-subtitle-sm: 0.6em;
-$text-size-subtitle-xs: 0.4em;
+$text-size-h1: 3rem;
+$text-size-h1-sm: 2rem;
+
+$text-size-h2: 2rem;
+$text-size-h2-sm: 1.5rem;
+
+$text-size-body: 1rem;
+$text-size-body-sm: 1rem;
+
+$text-size-button: 1.4rem;
+$text-size-button-sm: 1rem;
+$text-size-button-xs: 0.8rem;
+
+$text-size-subtitle: 0.8rem;
+$text-size-subtitle-sm: 0.6rem;
+$text-size-subtitle-xs: 0.4rem;
 
 $container-padding: 1em 1.5em 1em 1.5em;
-$box-shadow: 1px 1px 10px 3px #0003;
+
+$box-shadow:
+  0 1px 2px rgba(0, 0, 0, 0.07), 
+  0 2px 4px rgba(0, 0, 0, 0.07),
+  0 4px 8px rgba(0, 0, 0, 0.07), 
+  0 8px 16px rgba(0, 0, 0, 0.07);
 $text-shadow: 1px 1px 10px #0005;
 
-$background-color: #feffd6;
-$content-background-color: #ffffff;
+$button-hover: #d9d9d9;
+$background-color: #ffffff;
 $background-color-unfocused: #0003;
+
+$carousel-circle-focused: #6f6f6f;
+$carousel-circle-unfocused: #d9d9d9;
+
+$accent-color-primary: #2f80ed;
+$accent-color-darker: #2a72cf;
 
 $gradient-color-1: #f60101;
 $gradient-color-2: #272a92;
 $gradient-color-3: #00e7d6;
 $gradient-color-4: #0780ba;
 $gradient-speed: 0.000003;
+
+$logo-hover-transition: 0.2s;

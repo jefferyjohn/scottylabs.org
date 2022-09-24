@@ -1,23 +1,19 @@
+import clsx from "clsx";
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
+import isSafari from "../../utils/isSafari";
 import styles from "./index.module.scss";
 
-type GradientColors = [string, string, string, string];
-
-const GRADIENT_COLORS: GradientColors = [
-  "#F60101",
-  "#272A92",
-  "#00E7D6",
-  "#0780BA",
-];
-
-const AnimatedGradient = ({
-  gradientColors = GRADIENT_COLORS,
-  className,
-  ...props
-}: {
-  gradientColors?: GradientColors;
+interface GradientProps {
   className?: string;
-}) => {
+  expanded?: boolean;
+}
+
+export interface SubGradientProps {
+  className?: string;
+}
+
+function AnimatedGradient({ className }: SubGradientProps) {
   useEffect(() => {
     if (window?.Gradient != null) {
       const gradient = new window.Gradient();
@@ -27,26 +23,31 @@ const AnimatedGradient = ({
       gradient.amp = 100;
       gradient.initGradient("#gradient-canvas");
     }
-  }, [gradientColors]);
+  }, []);
 
   return (
     <canvas
-      className={`${styles.canvas} ${className}`}
+      className={clsx(styles.canvas, className)}
       id="gradient-canvas"
       data-transition-in
-      {...props}
     />
   );
-};
+}
+
+const AnimatedGradientNoSSR = dynamic(() => import("./AnimatedGradient"), {
+  ssr: false,
+});
 
 /**
  * Expanded gradient with a wave-masked bottom border.
  * Used in the home page with the hero icon
  */
-export const ExpandedGradient = () => {
+function ExpandedGradient({ className }: SubGradientProps) {
   return (
-    <div className={styles.gradientContainer}>
-      <AnimatedGradient className={styles.gradient} />
+    <div className={clsx(styles.gradientContainer, className)}>
+      <AnimatedGradientNoSSR
+        className={clsx(isSafari() ? styles.gradientSafari : styles.gradient)}
+      />
       <svg width={0} height={0}>
         <defs>
           <clipPath id="gradientClipPath" clipPathUnits="objectBoundingBox">
@@ -63,12 +64,26 @@ export const ExpandedGradient = () => {
       </svg>
     </div>
   );
-};
+}
 
 /**
  * Collapsed static gradient
  * Used on non-home pages
  */
-export const CollapsedGradient = () => {
-  return <div className={styles.staticGradient} />;
-};
+function CollapsedGradient({ className }: SubGradientProps) {
+  return <div className={clsx(styles.staticGradient, className)} />;
+}
+
+/**
+ * Gradient background for the navbar
+ */
+export default function Gradient({
+  className,
+  expanded = false,
+}: GradientProps) {
+  return expanded ? (
+    <ExpandedGradient className={className} />
+  ) : (
+    <CollapsedGradient className={className} />
+  );
+}

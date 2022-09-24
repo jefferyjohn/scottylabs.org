@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/future/image";
 import Link from "next/link";
 import { useState } from "react";
-import { CollapsedGradient, ExpandedGradient } from "../Gradient";
+import ScottyLabsIcon from "../../icons/ScottyLabsIcon";
+import Gradient from "../Gradient";
 import styles from "./index.module.scss";
 
 /**
@@ -18,13 +18,7 @@ const Toolbar = ({ collapsed }: { collapsed: Boolean }) => {
         {collapsed ? (
           <Link href="/" passHref>
             <a>
-              <Image
-                className={styles.navIcon}
-                src="/icons/scotty-dog.svg"
-                width={32}
-                height={32}
-                alt="ScottyLabs icon"
-              />
+              <ScottyLabsIcon className={styles.navIcon} />
             </a>
           </Link>
         ) : null}
@@ -42,9 +36,9 @@ const Toolbar = ({ collapsed }: { collapsed: Boolean }) => {
             onClick={() => setMobileLinksVisible(false)}
           >
             <div className={styles.navLinkModal}>
-              <Link href="/about" passHref>
+              {/* <Link href="/about" passHref>
                 <a className={`link ${styles.navLink}`}>/about</a>
-              </Link>
+              </Link> */}
               <Link href="/tech" passHref>
                 <a className={`link ${styles.navLink}`}>/tech</a>
               </Link>
@@ -59,9 +53,9 @@ const Toolbar = ({ collapsed }: { collapsed: Boolean }) => {
         ) : null}
       </div>
       <div className={styles.navLinkContainer}>
-        <Link href="/about" passHref>
+        {/* <Link href="/about" passHref>
           <a className={`link ${styles.navLink}`}>/about</a>
-        </Link>
+        </Link> */}
         <Link href="/tech" passHref>
           <a className={`link ${styles.navLink}`}>/tech</a>
         </Link>
@@ -84,7 +78,7 @@ const Toolbar = ({ collapsed }: { collapsed: Boolean }) => {
 const Navbar = ({ collapsed = false }: { collapsed?: Boolean }) => {
   return (
     <div>
-      {collapsed ? <CollapsedGradient /> : <ExpandedGradient />}
+      <Gradient expanded={!collapsed} />
       <Toolbar collapsed={collapsed} />
     </div>
   );

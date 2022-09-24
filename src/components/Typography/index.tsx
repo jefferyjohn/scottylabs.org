@@ -1,17 +1,36 @@
+import clsx from "clsx";
 import styles from "./index.module.scss";
 
-export type TypographyVariant = "header" | "subheader" | "body" | "subtitle";
+export type TypographyVariant =
+  | "hero"
+  | "header"
+  | "subheader"
+  | "body"
+  | "subtitle"
+  | "button";
 
 const Typography = ({
   variant = "body",
   children,
-  className = "",
+  className,
+  centered,
 }: {
   variant?: TypographyVariant;
-  children: string;
+  children?: string;
   className?: String;
+  centered?: boolean;
 }) => {
-  return <div className={`${className} ${styles[variant]}`}>{children}</div>;
+  return (
+    <div
+      className={clsx(
+        className,
+        styles[variant],
+        centered ? styles["centered"] : null
+      )}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default Typography;

@@ -1,19 +1,57 @@
 @import "~/styles/variables.scss";
 @import "~/styles/mixins.scss";
 
+.centered {
+  text-align: center;
+}
+
+.hero {
+  font-size: $text-size-hero;
+  font-weight: 800;
+
+  @include down($breakpoint-lg) {
+    font-size: $text-size-hero-lg;
+  }
+
+  @include down($breakpoint-md) {
+    font-size: $text-size-hero-md;
+  }
+
+  @include down($breakpoint-sm) {
+    font-size: $text-size-hero-sm;
+  }
+
+  @include down($breakpoint-xs) {
+    font-size: $text-size-hero-xs;
+  }
+}
+
 .header {
   font-size: $text-size-h1;
-  font-weight: bold;
+  font-weight: 800;
   text-transform: capitalize;
+
+  @include down($breakpoint-sm) {
+    font-size: $text-size-h1-sm;
+  }
 }
 
 .subheader {
   font-size: $text-size-h2;
   font-weight: 500;
+
+  @include down($breakpoint-sm) {
+    font-size: $text-size-h2-sm;
+  }
 }
 
 .body {
   font-size: $text-size-body;
+  line-height: 1.5;
+
+  @include down($breakpoint-sm) {
+    font-size: $text-size-body-sm;
+  }
 }
 
 .subtitle {
@@ -24,5 +62,16 @@
   }
   @include down($breakpoint-xs) {
     font-size: $text-size-subtitle-xs;
+  }
+}
+
+.button {
+  font-size: $text-size-button;
+
+  @include down($breakpoint-sm) {
+    font-size: $text-size-button-sm;
+  }
+  @include down($breakpoint-xs) {
+    font-size: $text-size-button-xs;
   }
 }
